@@ -81,6 +81,12 @@ namespace Base36EncoderTests
         }
 
         [TestMethod]
+        public void DecodingLongMinValue()
+        {
+            Assert.AreEqual(long.MinValue, Base36.Decode("-1Y2P0IJ32E8E8"));
+        }
+
+        [TestMethod]
         public void DecodingLongMaxValue()
         {
             Assert.AreEqual(long.MaxValue, Base36.Decode("1Y2P0IJ32E8E7"));

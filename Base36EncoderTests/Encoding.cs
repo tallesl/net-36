@@ -1,4 +1,5 @@
-﻿using Base36Encoder;
+﻿using System;
+using Base36Encoder;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Base36EncoderTests
@@ -50,6 +51,12 @@ namespace Base36EncoderTests
             Assert.AreEqual("1000000000", Base36.Encode(101559956668416L));
             Assert.AreEqual("10000000000", Base36.Encode(3656158440062976L));
             Assert.AreEqual("100000000000", Base36.Encode(131621703842267136L));
+        }
+
+        [TestMethod]
+        public void EncodingLongMinValue()
+        {
+            Assert.AreEqual("-1Y2P0IJ32E8E8", Base36.Encode(long.MinValue));
         }
 
         [TestMethod]

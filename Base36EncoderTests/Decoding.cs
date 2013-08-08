@@ -7,6 +7,15 @@ namespace Base36EncoderTests
     public class Decoding
     {
         [TestMethod]
+        public void DecodingBothCases()
+        {
+            Assert.AreEqual(Base36.Decode("aaa"), Base36.Decode("AAA"));
+            Assert.AreEqual(Base36.Decode("AaA"), Base36.Decode("aAa"));
+            Assert.AreEqual(Base36.Decode("test"), Base36.Decode("TEST"));
+            Assert.AreEqual(Base36.Decode("tESt"), Base36.Decode("tESt"));
+        }
+
+        [TestMethod]
         public void Decoding10Multiples()
         {
             Assert.AreEqual(10L, Base36.Decode("A"));

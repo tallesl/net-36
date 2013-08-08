@@ -9,6 +9,7 @@ namespace Base36Encoder
 
         public static long Decode(string value)
         {
+            value = value.ToUpper();
             var decoded = 0L;
             for (var i = 0; i < value.Length; ++i)
                 decoded += Digits.IndexOf(value[i]) * (long)BigInteger.Pow(Digits.Length, value.Length - i - 1);

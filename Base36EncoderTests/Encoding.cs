@@ -7,6 +7,13 @@ namespace Base36EncoderTests
     public class Encoding
     {
         [TestMethod]
+        public void EncodingNegative()
+        {
+            Assert.AreEqual("-AAA", Base36.Encode(-13330L));
+            Assert.AreEqual("-NEGATIVE", Base36.Encode(-1833836359370));
+        }
+
+        [TestMethod]
         public void Encoding10Multiples()
         {
             Assert.AreEqual("A", Base36.Encode(10L));

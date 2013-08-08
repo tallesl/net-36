@@ -18,12 +18,13 @@ namespace Base36Encoder
 
         public static string Encode(long value)
         {
+            bool negative = value < 0;
             value = Math.Abs(value);
             string encoded = string.Empty;
             do
                 encoded = Digits[(int)(value % Digits.Length)] + encoded;
             while ((value /= Digits.Length) != 0);
-            return encoded;
+            return negative ? "-" + encoded : encoded;
         }
     }
 }

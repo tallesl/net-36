@@ -26,6 +26,13 @@ namespace Base36EncoderTests
         }
 
         [TestMethod]
+        public void DecodingNegative()
+        {
+            Assert.AreEqual(-13330L, Base36.Decode("-AAA"));
+            Assert.AreEqual(-1833836359370, Base36.Decode("-NEGATIVE"));
+        }
+
+        [TestMethod]
         public void DecodingBothCases()
         {
             Assert.AreEqual(Base36.Decode("aaa"), Base36.Decode("AAA"));

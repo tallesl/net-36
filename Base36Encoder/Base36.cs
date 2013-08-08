@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Numerics;
 
 namespace Base36Encoder
@@ -9,7 +10,11 @@ namespace Base36Encoder
 
         public static long Decode(string value)
         {
+            if (string.IsNullOrWhiteSpace(value))
+                throw new ArgumentException("Empty value.");
             value = value.ToUpper();
+            if (value.Any(c => !Digits.Contains(c)))
+                throw new ArgumentException("Invalid value: \"" + value + "\".");
             var decoded = 0L;
             for (var i = 0; i < value.Length; ++i)
                 decoded += Digits.IndexOf(value[i]) * (long)BigInteger.Pow(Digits.Length, value.Length - i - 1);

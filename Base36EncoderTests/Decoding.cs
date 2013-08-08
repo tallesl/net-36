@@ -1,4 +1,5 @@
-﻿using Base36Encoder;
+﻿using System;
+using Base36Encoder;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Base36EncoderTests
@@ -6,6 +7,24 @@ namespace Base36EncoderTests
     [TestClass]
     public class Decoding
     {
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void DecodingEmpty()
+        {
+            Base36.Decode(string.Empty);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void DecodingNull()
+        {
+            Base36.Decode(null);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void DecodingInvalid()
+        {
+            Base36.Decode("invali d");
+        }
+
         [TestMethod]
         public void DecodingBothCases()
         {

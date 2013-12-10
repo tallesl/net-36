@@ -3,8 +3,7 @@
 A C# library to decode base 36 to base 10; encode base 10 to base 36.
 
 ## NuGet package
-
-Soon!
+[nuget.org/packages/csharpbase36](http://www.nuget.org/packages/csharpbase36)
 
 ## Usage
 

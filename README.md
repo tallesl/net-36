@@ -1,9 +1,6 @@
 # C# base 36 encoder
 
-A C# library to decode base 36 to base 10; encode base 10 to base 36.
-
-## NuGet package
-[nuget.org/packages/csharpbase36](http://www.nuget.org/packages/csharpbase36)
+A C# library that decodes base 36 → base 10 and encodes base 10 → base 36.
 
 ## Usage
 
@@ -22,8 +19,9 @@ There is simply a static class called `Base36` with an `Encode` and `Decode`meth
 
 ## More Info
 
-* Negative numbers are supported.
-* Case is ignored when decoding.
-* Encoded from / decoded to `long` type.
-* Unit tests are written to run with MSTest.
+* Negative numbers are supported;
+* Case is ignored when decoding;
+* Encoded from / decoded to `long` type;
+* Unit tests are written to run with MSTest;
+* There's a [NuGet package](http://www.nuget.org/packages/csharpbase36).
 

@@ -8,14 +8,18 @@ There is simply a static class called `Base36` with an `Encode` and `Decode`meth
 
 ### Encoding
 
-    Base36.Encode(10);    // returns "A"
-    Base36.Encode(10000); // returns "7PS"
+```cs
+Base36.Encode(10);    // returns "A"
+Base36.Encode(10000); // returns "7PS"
+```
 
 ### Decoding
 
-    Base36.Decode("Z");   // returns 35L
-    Base36.Decode("10");  // returns 36L
-    Base36.Decode("7PS"); // returns 10000L
+```cs
+Base36.Decode("Z");   // returns 35L
+Base36.Decode("10");  // returns 36L
+Base36.Decode("7PS"); // returns 10000L
+```
 
 ## More Info
 

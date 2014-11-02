@@ -1,6 +1,6 @@
 # [![logo](logo/83x22.png)](#c-base-36-encoder) C# base 36 encoder
 
-[![build](https://ci.appveyor.com/api/projects/status/github/gruntjs/grunt)](https://ci.appveyor.com/project/TallesL/csharpbase36)
+[![build](https://ci.appveyor.com/api/projects/status/github/tallesl/csharpbase36)](https://ci.appveyor.com/project/TallesL/csharpbase36)
 [![nuget package](https://badge.fury.io/nu/csharpbase36.png)](http://badge.fury.io/nu/csharpbase36)
 
 A C# library that decodes base 36 → base 10 and encodes base 10 → base 36.

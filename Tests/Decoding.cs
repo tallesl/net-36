@@ -1,39 +1,38 @@
-﻿using System;
-using Base36Encoder;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Base36EncoderTests
+﻿namespace Base36Library.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using System;
+
     [TestClass]
     public class Decoding
     {
         [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void DecodingEmpty()
+        public void Empty()
         {
             Base36.Decode(string.Empty);
         }
 
-        [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void DecodingNull()
+        [TestMethod, ExpectedException(typeof(ArgumentNullException))]
+        public void Null()
         {
             Base36.Decode(null);
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void DecodingInvalid()
+        public void Invalid()
         {
             Base36.Decode("invali d");
         }
 
         [TestMethod]
-        public void DecodingNegative()
+        public void Negative()
         {
             Assert.AreEqual(-13330L, Base36.Decode("-AAA"));
             Assert.AreEqual(-1833836359370, Base36.Decode("-NEGATIVE"));
         }
 
         [TestMethod]
-        public void DecodingBothCases()
+        public void MixedCases()
         {
             Assert.AreEqual(Base36.Decode("aaa"), Base36.Decode("AAA"));
             Assert.AreEqual(Base36.Decode("AaA"), Base36.Decode("aAa"));
@@ -42,7 +41,7 @@ namespace Base36EncoderTests
         }
 
         [TestMethod]
-        public void Decoding10Multiples()
+        public void MultiplesOf10()
         {
             Assert.AreEqual(10L, Base36.Decode("A"));
             Assert.AreEqual(100L, Base36.Decode("2S"));
@@ -65,7 +64,7 @@ namespace Base36EncoderTests
         }
 
         [TestMethod]
-        public void Decoding36Multiples()
+        public void MultiplesOf36()
         {
             Assert.AreEqual(36L, Base36.Decode("10"));
             Assert.AreEqual(1296L, Base36.Decode("100"));
@@ -81,21 +80,20 @@ namespace Base36EncoderTests
         }
 
         [TestMethod]
-        public void DecodingLongMinValue()
+        public void LongMinValue()
         {
             Assert.AreEqual(long.MinValue, Base36.Decode("-1Y2P0IJ32E8E8"));
         }
 
         [TestMethod]
-        public void DecodingLongMaxValue()
+        public void LongMaxValue()
         {
             Assert.AreEqual(long.MaxValue, Base36.Decode("1Y2P0IJ32E8E7"));
         }
 
         [TestMethod]
-        public void DecodingSingleDigits()
+        public void SingleDigits()
         {
-
             #region 0 to Z
 
             Assert.AreEqual(0L, Base36.Decode("0"));
@@ -136,13 +134,11 @@ namespace Base36EncoderTests
             Assert.AreEqual(35L, Base36.Decode("Z"));
 
             #endregion
-
         }
 
         [TestMethod]
-        public void DecodingDoubleDigits()
+        public void DoubleDigits()
         {
-
             #region 10 to 1Z
 
             Assert.AreEqual(36L, Base36.Decode("10"));
@@ -1577,7 +1573,6 @@ namespace Base36EncoderTests
             Assert.AreEqual(1295L, Base36.Decode("ZZ"));
 
             #endregion
-
         }
     }
 }

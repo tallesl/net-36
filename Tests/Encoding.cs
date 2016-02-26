@@ -1,21 +1,19 @@
-﻿using System;
-using Base36Encoder;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Base36EncoderTests
+﻿namespace Base36Library.Tests
 {
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class Encoding
     {
         [TestMethod]
-        public void EncodingNegative()
+        public void Negative()
         {
             Assert.AreEqual("-AAA", Base36.Encode(-13330L));
             Assert.AreEqual("-NEGATIVE", Base36.Encode(-1833836359370));
         }
 
         [TestMethod]
-        public void Encoding10Multiples()
+        public void MultiplesOf10()
         {
             Assert.AreEqual("A", Base36.Encode(10L));
             Assert.AreEqual("2S", Base36.Encode(100L));
@@ -38,7 +36,7 @@ namespace Base36EncoderTests
         }
 
         [TestMethod]
-        public void Encoding36Multiples()
+        public void MultiplesOf36()
         {
             Assert.AreEqual("10", Base36.Encode(36L));
             Assert.AreEqual("100", Base36.Encode(1296L));
@@ -54,21 +52,20 @@ namespace Base36EncoderTests
         }
 
         [TestMethod]
-        public void EncodingLongMinValue()
+        public void LongMinValue()
         {
             Assert.AreEqual("-1Y2P0IJ32E8E8", Base36.Encode(long.MinValue));
         }
 
         [TestMethod]
-        public void EncodingLongMaxValue()
+        public void LongMaxValue()
         {
             Assert.AreEqual("1Y2P0IJ32E8E7", Base36.Encode(long.MaxValue));
         }
 
         [TestMethod]
-        public void EncodingSingleDigits()
+        public void SingleDigits()
         {
-
             #region 0 to 35
 
             Assert.AreEqual("0", Base36.Encode(0L));
@@ -109,13 +106,11 @@ namespace Base36EncoderTests
             Assert.AreEqual("Z", Base36.Encode(35L));
 
             #endregion
-
         }
 
         [TestMethod]
-        public void EncodingDoubleDigits()
+        public void DoubleDigits()
         {
-
             #region 10 to 1Z
 
             Assert.AreEqual("10", Base36.Encode(36L));
@@ -1550,7 +1545,6 @@ namespace Base36EncoderTests
             Assert.AreEqual("ZZ", Base36.Encode(1295L));
 
             #endregion
-            
         }
     }
 }

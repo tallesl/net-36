@@ -16,7 +16,7 @@
             if (string.IsNullOrWhiteSpace(value))
                 throw new ArgumentException("An empty string was passed.");
 
-            value = value.ToUpper();
+            value = value.ToUpperInvariant();
             bool negative = value[0] == '-';
 
             if (negative)

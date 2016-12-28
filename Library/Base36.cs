@@ -6,6 +6,9 @@
     using System.Linq;
     using System.Numerics;
 
+    /// <summary>
+    /// Base 10 to base 36 and vice versa.
+    /// </summary>
     public static class Base36
     {
         private const string Digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -14,11 +17,23 @@
 
         private const string Max = "1Y2P0IJ32E8E7";
 
+        /// <summary>
+        /// Compare the two values and returns, similar to string.Compare, 1 if valueA < valueB, -1 if valueA > valueB
+        /// and 0 if valueA == valueB.
+        /// </summary>
+        /// <param name="valueA">First value of the comparison</param>
+        /// <param name="valueB">Second value of the comparison</param>
+        /// <returns>A integer indicating how the two values relate together</returns>
         public static int Compare(string valueA, string valueB)
         {
             return _Compare(Sanitize(valueA), Sanitize(valueB));
         }
 
+        /// <summary>
+        /// Converts from base 36 to base 10.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        /// <returns>Value in base 10</returns>
         public static long Decode(string value)
         {
             value = Sanitize(value);
@@ -37,6 +52,11 @@
             return negative ? decoded * -1 : decoded;
         }
 
+        /// <summary>
+        /// Converts from base 10 to base 36.
+        /// </summary>
+        /// <param name="value">Value to convert</param>
+        /// <returns>Value in base 36</returns>
         public static string Encode(long value)
         {
             // hard coded value due to "Negating the minimum value of a twos complement number is invalid."

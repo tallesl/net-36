@@ -6,12 +6,6 @@
     [TestClass]
     public class Decoding
     {
-        [TestMethod, ExpectedException(typeof(ArgumentException))]
-        public void Empty()
-        {
-            Base36.Decode(string.Empty);
-        }
-
         [TestMethod, ExpectedException(typeof(ArgumentNullException))]
         public void Null()
         {
@@ -19,9 +13,27 @@
         }
 
         [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void Empty()
+        {
+            Base36.Decode(string.Empty);
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
         public void Invalid()
         {
             Base36.Decode("invali d");
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void PositiveOverflow()
+        {
+            Base36.Decode("1Y2P0IJ32E8E8");
+        }
+
+        [TestMethod, ExpectedException(typeof(ArgumentException))]
+        public void NegativeOverflow()
+        {
+            Base36.Decode("-1Y2P0IJ32E8E9");
         }
 
         [TestMethod]

@@ -9,7 +9,7 @@
         public void Negative()
         {
             Assert.AreEqual("-AAA", Base36.Encode(-13330L));
-            Assert.AreEqual("-NEGATIVE", Base36.Encode(-1833836359370));
+            Assert.AreEqual("-NEGATIVE", Base36.Encode(-1833836359370L));
         }
 
         [TestMethod]

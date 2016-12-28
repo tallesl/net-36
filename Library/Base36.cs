@@ -18,9 +18,18 @@
         private const string Max = "1Y2P0IJ32E8E7";
 
         /// <summary>
-        /// Compare the two values and returns, similar to string.Compare, 1 if valueA < valueB, -1 if valueA > valueB
-        /// and 0 if valueA == valueB.
+        /// Checks if the given value would cause a overflow (by being out of the long.MinValue to long.MaxValue range).
         /// </summary>
+        /// <param name="value">Value to check</param>
+        /// <returns>True if the value would cause an overflow, false otherwise</returns>
+        public static bool WouldOverflow(string value)
+        {
+            return _Compare(Min, value) < 0 ||_Compare(value, Max) < 0;
+        }
+
+        /// <summary>
+        /// Compare two specified base 36 values and returns an integer that indicates their relative position in the
+        /// sort order, similar to the string.Compare method.
         /// <param name="valueA">First value of the comparison</param>
         /// <param name="valueB">Second value of the comparison</param>
         /// <returns>A integer indicating how the two values relate together</returns>

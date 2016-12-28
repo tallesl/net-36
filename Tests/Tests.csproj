@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Comparing.cs" />
     <Compile Include="Decoding.cs" />
+    <Compile Include="WouldOverflow.cs" />
     <Compile Include="Encoding.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

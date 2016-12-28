@@ -6,6 +6,26 @@
     [TestClass]
     public class Decoding
     {
+        [TestMethod]
+        public void Zeroes()
+        {
+            Assert.AreEqual(0, Base36.Decode("0"));
+            Assert.AreEqual(0, Base36.Decode("00"));
+            Assert.AreEqual(0, Base36.Decode("000"));
+
+            Assert.AreEqual(0, Base36.Decode("-0"));
+            Assert.AreEqual(0, Base36.Decode("-00"));
+            Assert.AreEqual(0, Base36.Decode("-000"));
+
+            Assert.AreEqual(1, Base36.Decode("01"));
+            Assert.AreEqual(1, Base36.Decode("001"));
+            Assert.AreEqual(1, Base36.Decode("001"));
+
+            Assert.AreEqual(-1, Base36.Decode("-01"));
+            Assert.AreEqual(-1, Base36.Decode("-001"));
+            Assert.AreEqual(-1, Base36.Decode("-001"));
+        }
+
         [TestMethod, ExpectedException(typeof(ArgumentNullException))]
         public void Null()
         {

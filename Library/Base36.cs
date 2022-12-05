@@ -30,6 +30,7 @@
         /// <summary>
         /// Compare two specified base 36 values and returns an integer that indicates their relative position in the
         /// sort order, similar to the string.Compare method.
+        /// </summary>
         /// <param name="valueA">First value of the comparison</param>
         /// <param name="valueB">Second value of the comparison</param>
         /// <returns>A integer indicating how the two values relate together</returns>

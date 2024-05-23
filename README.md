@@ -11,8 +11,8 @@
 
 [Base 10] to [base 36] and vice versa.
 
-[build]:     https://ci.appveyor.com/project/TallesL/net-36
-[build-img]: https://ci.appveyor.com/api/projects/status/github/tallesl/net-36?svg=true
+[build]:     https://github.com/tallesl/net-36/actions
+[build-img]: https://github.com/tallesl/net-36/actions/workflows/dotnet.yml/badge.svg
 [nuget]:     https://www.nuget.org/packages/36
 [nuget-img]: https://badge.fury.io/nu/36.svg
 [Base 10]:   https://en.wikipedia.org/wiki/Decimal
